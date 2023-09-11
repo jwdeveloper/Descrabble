@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Descrabble-Api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Framework/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Framework/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Plugin-Github/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Plugin-Github/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Plugin-Spigot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Plugin-Spigot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Test-Application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Descrabble-Test-Application/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Example-Application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Example-Application/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
