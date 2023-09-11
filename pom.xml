@@ -72,10 +72,10 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <goals>
-                            <goal>update-file-header</goal>
-                        </goals>
                         <phase>process-sources</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
