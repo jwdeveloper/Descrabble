@@ -24,10 +24,38 @@
         <dependency>
             <groupid>com.github.jwdeveloper.Descrabble</groupid>
             <artifactid>Descrabble-Full</artifactid>
-            <version>0.0.8-Release</version>
+            <version>0.0.6-Release</version>
         </dependency>
     </dependencies>     
 ```
+
+<div align="center" >
+
+
+<a href="asd" target="blank" >
+
+<img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png" >
+</img>
+</a>
+
+
+
+<a href="asd" target="blank" >
+
+<img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png" >
+</img>
+</a>
+
+
+
+<a href="asd" target="blank" >
+
+<img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png" >
+</img>
+</a>
+
+</div>
+
 
 <h3>2. Create Simple desciption</h3>
 
