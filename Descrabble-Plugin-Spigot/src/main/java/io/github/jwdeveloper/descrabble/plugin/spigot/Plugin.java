@@ -93,6 +93,6 @@ public class Plugin implements DescrabblePlugin {
 
     @Override
     public List<DescrabbleElementRenderer> getCustomRenderers() {
-        return new ArrayList<>();
+        return List.of(new TitleElement());
     }
 }

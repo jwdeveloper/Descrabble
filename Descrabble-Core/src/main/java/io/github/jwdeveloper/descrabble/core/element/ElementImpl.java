@@ -130,6 +130,11 @@ public class ElementImpl implements Element {
     }
 
     @Override
+    public void setProperty(String name, String value) {
+        data.getProperties().put(name,value);
+    }
+
+    @Override
     public boolean hasTag(String tag) {
         for (var tagg : getTags()) {
             if (tagg.equals(tag)) {

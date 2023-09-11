@@ -33,8 +33,6 @@ public class TextElement extends SpigotElement {
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
 
 
-
-
         if (elementData.hasProperty("color")) {
             openTag(textBuilder, "COLOR", elementData.getProperty("color"));
         }

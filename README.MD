@@ -13,7 +13,20 @@
 
 
 ```xml
-jitpack.iohttps://jitpack.iocom.github.jwdeveloper.DescrabbleDescrabble-Full1.0.0 
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupid>com.github.jwdeveloper.Descrabble</groupid>
+            <artifactid>Descrabble-Full</artifactid>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>     
 ```
 
 <h3>2. Create Simple desciption</h3>

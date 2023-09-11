@@ -1,3 +1,20 @@
+[URL='https://jitpack.io/#jwdeveloper/Descrabble'][IMG]https://jitpack.io/v/jwdeveloper/Descrabble.svg[/IMG][/URL]
+[SIZE=8]Descrabble[SIZE=8]Descrabble[/SIZE][/SIZE][SIZE=3]1. Install via maven[SIZE=3]1. Install via maven[/SIZE][/SIZE][CODE=xml]
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupid>com.github.jwdeveloper.Descrabble</groupid>
+            <artifactid>Descrabble-Full</artifactid>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>    
+[/CODE][SIZE=3]2. Create Simple desciption[SIZE=3]2. Create Simple desciption[/SIZE][/SIZE][CODE=java]
 /*
  * Copyright (c) 2023-2023 jwdeveloper  <jacekwoln@gmail.com>
  *
@@ -22,31 +39,29 @@
  */
 package io.github.jwdeveloper.descrabble.example;
 
+
 import io.github.jwdeveloper.descrabble.api.DescriptionGenerator;
 import io.github.jwdeveloper.descrabble.framework.Descrabble;
 import io.github.jwdeveloper.descrabble.plugin.github.DescrabbleGithub;
 import io.github.jwdeveloper.descrabble.plugin.spigot.DescrabbleSpigot;
 
+
 import java.io.File;
 
-public class GenerateGithubReadMe
-{
-
-    public static void main(String[] args)
-    {
-        var classLoader = GenerateGithubReadMe.class.getClassLoader();
-        var file = new File(classLoader.getResource("readme-template.html").getFile());
-
+public class TemplateExample {
+    public static void main(String[] args) {
+        ClassLoader classLoader = TemplateExample.class.getClassLoader();
+        File file = new File(classLoader.getResource("template.html").getFile());
 
         DescriptionGenerator generator = Descrabble.create()
                 .withTemplate(file)
-                .withVariable("version","1.0.0")
-                .withPlugin(DescrabbleGithub.plugin("README.MD"))
+                .withPlugin(DescrabbleGithub.plugin())
                 .withPlugin(DescrabbleSpigot.plugin())
                 .build();
 
-        var output = System.getProperty("user.dir");
+        String output = "C:\\Users\\ja\\IdeaProjects\\DescriptionGenerator\\examples\\src\\main\\resources\\output";
         generator.generate(output);
-
     }
 }
+
+[/CODE]

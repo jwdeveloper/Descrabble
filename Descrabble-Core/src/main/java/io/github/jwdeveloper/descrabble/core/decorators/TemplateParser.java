@@ -30,24 +30,23 @@ import org.jsoup.Jsoup;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class TemplateParser implements DescriptionDecorator {
     private final File file;
-    public TemplateParser(File file)  {
-      this.file = file;
+
+    public TemplateParser(File file) {
+        this.file = file;
     }
 
     @Override
     public void decorate(Element root, ElementFactory factory) {
-        try
-        {
+        try {
             var doc = Jsoup.parse(file, "UTF-8");
             var htmlBody = doc.getElementsByTag("body").get(0);
             decorate(htmlBody, root, factory);
-        }
-        catch (IOException e)
-        {
-            throw new RuntimeException("Unable to load template file",e);
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to load template file", e);
         }
     }
 
@@ -56,8 +55,7 @@ public class TemplateParser implements DescriptionDecorator {
 
             var builder = factory.getBuilder();
             var name = htmlElement.tagName();
-            if(name.equals("img"))
-            {
+            if (name.equals("img")) {
                 name = "image";
             }
             var elementType = ElementType.byName(name);
@@ -77,6 +75,27 @@ public class TemplateParser implements DescriptionDecorator {
             }
 
             var newRoot = builder.build();
+
+            if (htmlElement.tagName().equals("code")) {
+
+                var content = clearCodeTag(htmlElement.toString());
+
+
+                if(htmlElement.hasAttr("language"))
+                {
+                     if(htmlElement.attributes().get("language").equals("xml"))
+                    {
+                        content = handleXmlContent(content);
+                    }
+                }
+
+                var text = factory.textElement(content);
+                newRoot.addElement(text);
+                root.addElement(newRoot);
+                continue;
+            }
+
+
             if (htmlElement.hasText()) {
                 var text = htmlElement.ownText();
                 if (elementType != ElementType.TEXT) {
@@ -85,16 +104,43 @@ public class TemplateParser implements DescriptionDecorator {
                 }
                 newRoot.addProperty("text", text);
             }
-            System.out.println(htmlElement.tagName());
-            if(htmlElement.tagName().equals("html-content"))
-            {
+            if (htmlElement.tagName().equals("html-content")) {
                 var text = factory.textElement(htmlElement.html());
                 newRoot.addElement(text);
                 root.addElement(newRoot);
                 continue;
             }
+
             decorate(htmlElement, newRoot, factory);
             root.addElement(newRoot);
         }
+    }
+
+    private String clearCodeTag(String input) {
+        var regex = "<code\\s*(.*?)>";
+        var content = input
+                .replaceFirst(regex, "")
+                .replace("</code>", "");
+        return content;
+    }
+
+    private String handleXmlContent(String input) {
+        var content =input
+                .replaceAll(" ", "    ");
+
+
+        var regex2 = "<([^> ]+)([^>]*)>([^<]+)(<\\/\\1>)";
+        var pattern = Pattern.compile(regex2);
+        var matcher = pattern.matcher(content);
+        var sb = new StringBuffer();
+        while (matcher.find()) {
+            var tagName = matcher.group(1);
+            var tagContent = matcher.group(3).trim();
+
+            var replacement = String.format("<%s>%s</%s>", tagName, tagContent, tagName);
+            matcher.appendReplacement(sb, replacement);
+        }
+        matcher.appendTail(sb);
+        return sb.toString();
     }
 }
