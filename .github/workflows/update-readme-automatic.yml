@@ -1,4 +1,4 @@
-name: Update readme manually
+name: Update readme automatic
 
 on:
   workflow_dispatch:
@@ -12,45 +12,10 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-    - name: 1 Check main
-      uses: actions/checkout@v3
-      with:
-       fetch-depth: 0   
-    
-    - name: 2 Set up JDK 16
-      uses: actions/setup-java@v3
-      with:
-        java-version: '16'
-        distribution: 'corretto'
-        cache: maven
-   
-    - name: 3 Build with Maven
-      run: mvn clean install
-
-    - name: 4 set up a cache for maven
-      uses: actions/cache@v2
-      with:
-         path: ~/.m2
-         key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
-         restore-keys: ${{runner.os}}-m2
-
     - name: 5 Run Java Application
       run: java -cp Example-Application/target/Example-Application-${{github.event.inputs.version}}-Release-all.jar io.github.jwdeveloper.descrabble.example.GenerateGithubReadMe
       env:
        VERSION: ${{github.event.inputs.version}}
-    - name: 6 copy jar files
-      run: mkdir staging
-
-    - name: 7 Show files
+    - name: 6 Show files
       run: find . -type f -ls
-
-    - name: 8 Ovverride pom
-      run: |
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git add README.MD
-            git commit -m "Update readme"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-       branch: master            
+       
