@@ -38,7 +38,7 @@ jobs:
          restore-keys: ${{runner.os}}-m2
 
     - name: Run Java Application
-      run: java -cp Example-Application/target/Example-Application-0.0.2-Release.jar io.github.jwdeveloper.descrabble.example.GenerateGithubReadMe
+      run: java -cp Example-Application/target/Example-Application-0.0.3-Release.jar io.github.jwdeveloper.descrabble.example.GenerateGithubReadMe
              
     - name: 9 Ovverride pom
       run: |
