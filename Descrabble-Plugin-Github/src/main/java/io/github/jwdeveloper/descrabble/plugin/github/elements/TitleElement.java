@@ -28,6 +28,8 @@ import io.github.jwdeveloper.descrabble.api.elements.Element;
 import io.github.jwdeveloper.descrabble.framework.api.DescrabbleElementRenderer;
 import io.github.jwdeveloper.descrabble.framework.api.ElementRendererModel;
 
+import java.util.Objects;
+
 public class TitleElement implements DescrabbleElementRenderer {
     @Override
     public void onRegistration(ElementRendererModel model) {
@@ -39,11 +41,11 @@ public class TitleElement implements DescrabbleElementRenderer {
 
         textBuilder.newLine();
         var size= getSize(elementData);
-        textBuilder.text("<h").text(size).space();
+        textBuilder.text("<h").text(size);
 
         if(elementData.hasProperty("align"))
         {
-            textBuilder.textBetween("align=\"",elementData.getProperty("align"),"\"").space();
+            textBuilder.space().textBetween("align=\"",elementData.getProperty("align"),"\"").space();
         }
         textBuilder.text(">");
 
@@ -64,7 +66,7 @@ public class TitleElement implements DescrabbleElementRenderer {
         if (elementData.hasProperty("size")) {
             return elementData.getProperty("size");
         }
-        return "";
+        return "1";
     }
 
 

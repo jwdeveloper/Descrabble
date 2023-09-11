@@ -33,6 +33,16 @@ import io.github.jwdeveloper.descrabble.plugin.github.elements.html.VideoElement
 import java.util.List;
 
 public class Plugin implements DescrabblePlugin {
+    private String outputFileName;
+
+    public Plugin() {
+        this.outputFileName = "github.md";
+    }
+
+    public Plugin(String outputFileName) {
+        this.outputFileName = outputFileName;
+    }
+
     @Override
     public String getPluginName() {
         return "github";
@@ -40,7 +50,7 @@ public class Plugin implements DescrabblePlugin {
 
     @Override
     public String getOutputFileName() {
-        return "github.md";
+        return outputFileName;
     }
 
     @Override

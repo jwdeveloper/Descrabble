@@ -31,4 +31,7 @@ public class DescrabbleGithub
         return new Plugin();
     }
 
+    public static DescrabblePlugin plugin(String outputFileName) {
+        return new Plugin(outputFileName);
+    }
 }
