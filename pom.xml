@@ -7,7 +7,7 @@
     <groupId>io.github.jwdeveloper.descrabble</groupId>
     <artifactId>Descrabble</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.6-Release</version>
+    <version>0.0.7-Release</version>
     <modules>
         <module>Descrabble-Api</module>
         <module>Descrabble-Core</module>
