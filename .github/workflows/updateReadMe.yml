@@ -23,28 +23,29 @@ jobs:
    
     - name: 3 Build with Maven
       run: mvn clean install
-      
-    - name: 3.1 Show files
-      run: find . -type f -ls
-      
-    - name: 4.1 copy jar files
-      run: mkdir staging
-      
-    - name: 5 set up a cache for maven
+
+    - name: 4 set up a cache for maven
       uses: actions/cache@v2
       with:
          path: ~/.m2
          key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
          restore-keys: ${{runner.os}}-m2
 
-    - name: Run Java Application
-      run: java -cp Example-Application/target/Example-Application-0.0.3-Release-all.jar io.github.jwdeveloper.descrabble.example.GenerateGithubReadMe
-             
-    - name: 9 Ovverride pom
+    - name: 5 Run Java Application
+      run: java -cp Example-Application/target/Example-Application-0.0.4-Release-all.jar io.github.jwdeveloper.descrabble.example.GenerateGithubReadMe
+      env:
+       VERSION: 5.0.0
+    - name: 6 copy jar files
+      run: mkdir staging
+
+    - name: 7 Show files
+      run: find . -type f -ls
+
+    - name: 8 Ovverride pom
       run: |
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            git add README.MD
+            git add Example-Application/target/README.MD
             git commit -m "Update readme"
     - name: Push changes
       uses: ad-m/github-push-action@master

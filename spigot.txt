@@ -11,7 +11,7 @@
         <dependency>
             <groupid>com.github.jwdeveloper.Descrabble</groupid>
             <artifactid>Descrabble-Full</artifactid>
-            <version>1.0.0</version>
+            <version>[Replace with current version]</version>
         </dependency>
     </dependencies>    
 [/CODE][SIZE=3]2. Create Simple desciption[SIZE=3]2. Create Simple desciption[/SIZE][/SIZE][CODE=java]

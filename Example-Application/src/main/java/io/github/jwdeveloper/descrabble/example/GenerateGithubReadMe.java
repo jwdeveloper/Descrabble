@@ -26,27 +26,37 @@ import io.github.jwdeveloper.descrabble.api.DescriptionGenerator;
 import io.github.jwdeveloper.descrabble.framework.Descrabble;
 import io.github.jwdeveloper.descrabble.plugin.github.DescrabbleGithub;
 import io.github.jwdeveloper.descrabble.plugin.spigot.DescrabbleSpigot;
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
+
 
 public class GenerateGithubReadMe
 {
 
-    public static void main(String[] args)
-    {
-        var classLoader = GenerateGithubReadMe.class.getClassLoader();
-        var file = new File(classLoader.getResource("readme-template.html").getFile());
+    public static void main(String[] args) throws IOException {
+        var version = System.getenv("VERSION");
+        if(version == null || version.equals(""))
+        {
+            version = "[Replace with current version]";
+        }
 
+        var inputStream =GenerateGithubReadMe.class.getResourceAsStream("/readme-template.html");
+        var targetFile = new File("temp.tmp");
+        FileUtils.copyInputStreamToFile(inputStream, targetFile);
 
         DescriptionGenerator generator = Descrabble.create()
-                .withTemplate(file)
-                .withVariable("version","1.0.0")
+                .withTemplate(targetFile)
+                .withVariable("version",version)
                 .withPlugin(DescrabbleGithub.plugin("README.MD"))
                 .withPlugin(DescrabbleSpigot.plugin())
                 .build();
 
         var output = System.getProperty("user.dir");
         generator.generate(output);
+        targetFile.delete();
+        inputStream.close();
 
     }
 }
