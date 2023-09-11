@@ -60,7 +60,7 @@ jobs:
          path: staging
 
     - name: 7.5 Update read me
-      run: java -cp Example-Application/target/Example-Application-${{steps.version.outputs.version_tag}}-Release-all.jar io.github.jwdeveloper.descrabble.example.GenerateGithubReadMe
+      run: java -cp Example-Application/target/Example-Application-${{steps.version.outputs.version_tag}}-all.jar io.github.jwdeveloper.descrabble.example.GenerateGithubReadMe
       env:
        VERSION: ${{steps.version.outputs.version_tag}}
  
