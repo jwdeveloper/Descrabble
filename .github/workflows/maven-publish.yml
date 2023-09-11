@@ -68,7 +68,12 @@ jobs:
           title: ${{ steps.version.outputs.version_tag }}
           files: |
               staging/*.jar
-             
+
+    - name: 8.5 Update ReadMe           
+      uses: ./.github/workflows/update-readme-automatic.yml  
+      with:
+        version:  ${{ steps.version.outputs.version_tag }}
+        
     - name: 9 Ovverride pom
       run: |
             git config --local user.email "action@github.com"
