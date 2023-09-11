@@ -1,4 +1,4 @@
-name: Update readme 
+name: Update readme manually
 
 on:
   workflow_dispatch:
