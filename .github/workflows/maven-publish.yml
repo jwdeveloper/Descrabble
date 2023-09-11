@@ -58,6 +58,11 @@ jobs:
       with:
          name: ${{ steps.version.outputs.version_tag }}
          path: staging
+
+    - name: 7.5 Update ReadMe           
+      uses: ./.github/workflows/update-readme-simple.yml
+      with:
+        version:  ${{ steps.version.outputs.version_tag }}
  
     - name:  8 Create Release
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -68,11 +73,6 @@ jobs:
           title: ${{ steps.version.outputs.version_tag }}
           files: |
               staging/*.jar
-
-    - name: 8.5 Update ReadMe           
-      uses: ./.github/workflows/update-readme-automatic.yml  
-      with:
-        version:  ${{ steps.version.outputs.version_tag }}
         
     - name: 9 Ovverride pom
       run: |
