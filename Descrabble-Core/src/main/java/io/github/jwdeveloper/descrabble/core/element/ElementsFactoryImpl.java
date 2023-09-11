@@ -66,7 +66,7 @@ public class ElementsFactoryImpl implements ElementFactory {
 
     @Override
     public Element videoElement(String open) {
-        return videoElement(open,"100");
+        return videoElement(open,"100%");
     }
 
     @Override
@@ -91,7 +91,7 @@ public class ElementsFactoryImpl implements ElementFactory {
 
     @Override
     public Element imageElement(String link, String redirectLink) {
-        return imageElement(link,redirectLink,"100");
+        return imageElement(link,redirectLink,"100%");
     }
 
     @Override

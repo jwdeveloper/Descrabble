@@ -61,7 +61,5 @@ public class ImageElement extends SpigotElement {
         if (elementData.hasProperty("open")) {
             closeTag(textBuilder, "URL");
         }
-
-        textBuilder.newLine();
     }
 }

@@ -60,7 +60,7 @@ public class ContainerElement extends SpigotElement {
 
     @Override
     public void onBeforeEachChild(TextBuilder textBuilder, Element elementData) {
-        textBuilder.newLine();
+
     }
 
 }

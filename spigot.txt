@@ -1,5 +1,4 @@
-[URL='https://jitpack.io/#jwdeveloper/Descrabble'][IMG]https://jitpack.io/v/jwdeveloper/Descrabble.svg[/IMG][/URL]
-[SIZE=8]Descrabble[SIZE=8]Descrabble[/SIZE][/SIZE][SIZE=3]1. Install via maven[SIZE=3]1. Install via maven[/SIZE][/SIZE][CODE=xml]
+[URL='https://jitpack.io/#jwdeveloper/Descrabble'][IMG]https://jitpack.io/v/jwdeveloper/Descrabble.svg[/IMG][/URL][SIZE=8]Descrabble[SIZE=8]Descrabble[/SIZE][/SIZE][SIZE=3]1. Install via maven[SIZE=3]1. Install via maven[/SIZE][/SIZE][CODE=xml]
 
     <repositories>
         <repository>
@@ -14,7 +13,11 @@
             <version>[Replace with current version]</version>
         </dependency>
     </dependencies>    
-[/CODE][SIZE=3]2. Create Simple desciption[SIZE=3]2. Create Simple desciption[/SIZE][/SIZE][CODE=java]
+[/CODE]
+
+[CENTER][URL='asd'][IMG]https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png[/IMG][/URL][URL='asd'][IMG]https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png[/IMG][/URL][URL='asd'][IMG]https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png[/IMG][/URL][/CENTER]
+
+[SIZE=3]2. Create Simple desciption[SIZE=3]2. Create Simple desciption[/SIZE][/SIZE][CODE=java]
 /*
  * Copyright (c) 2023-2023 jwdeveloper  <jacekwoln@gmail.com>
  *
