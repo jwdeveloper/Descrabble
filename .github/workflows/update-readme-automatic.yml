@@ -1,0 +1,21 @@
+name: Update readme automatic
+
+on:
+  workflow_dispatch:
+   inputs:
+     version:
+      description: 'version'
+      required: true
+      default: 'Version not specified'
+jobs:
+  build:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+    - name: 5 Run Java Application
+      run: java -cp Example-Application/target/Example-Application-${{github.event.inputs.version}}-Release-all.jar io.github.jwdeveloper.descrabble.example.GenerateGithubReadMe
+      env:
+       VERSION: ${{github.event.inputs.version}}
+    - name: 6 Show files
+      run: find . -type f -ls
+       
