@@ -57,7 +57,10 @@ public interface Element {
 
     void setProperty(String name, String value);
 
+    void removeProperty(String name);
+
     boolean hasTag(String tag);
+
     boolean hasElements();
 
     boolean hasElementType(ElementType elementType);

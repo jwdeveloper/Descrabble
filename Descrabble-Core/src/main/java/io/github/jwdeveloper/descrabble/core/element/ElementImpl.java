@@ -135,6 +135,11 @@ public class ElementImpl implements Element {
     }
 
     @Override
+    public void removeProperty(String name) {
+        data.getProperties().remove(name);
+    }
+
+    @Override
     public boolean hasTag(String tag) {
         for (var tagg : getTags()) {
             if (tagg.equals(tag)) {
