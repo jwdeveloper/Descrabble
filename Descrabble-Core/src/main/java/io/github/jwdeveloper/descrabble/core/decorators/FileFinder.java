@@ -12,6 +12,12 @@ public class FileFinder {
     public static Map<String, FileDto> listHtmlFiles(File file) {
         Map<String, FileDto> htmlFilesMap = new HashMap<>();
 
+
+        if(file.getParent() == null)
+        {
+            return htmlFilesMap;
+        }
+
         var directory = new File(file.getParent());
         if (directory == null || !directory.isDirectory()) {
             return htmlFilesMap;
