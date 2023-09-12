@@ -34,7 +34,7 @@ import java.io.File;
 public class TemplateExample {
     public static void main(String[] args) {
         ClassLoader classLoader = TemplateExample.class.getClassLoader();
-        File file = new File(classLoader.getResource("template.html").getFile());
+        File file = new File(classLoader.getResource("templates/template.html").getFile());
 
         DescriptionGenerator generator = Descrabble.create()
                 .withTemplate(file)
@@ -42,7 +42,7 @@ public class TemplateExample {
                 .withPlugin(DescrabbleSpigot.plugin())
                 .build();
 
-        String output = "C:\\Users\\ja\\IdeaProjects\\DescriptionGenerator\\examples\\src\\main\\resources\\output";
+        String output = "D:\\Git\\Descrabble\\Example-Application\\src\\main\\resources\\templates-output";
         generator.generate(output);
     }
 }

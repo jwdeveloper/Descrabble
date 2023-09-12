@@ -1,4 +1,9 @@
 
+<h1>This is user template</h1>
+
+ - User: mark
+ - Description: hello
+
 <details>
 <summary>tajemnica</summary>
 siema
@@ -19,7 +24,7 @@ siema
 Polski język ż cz ą ę[Click here to get free BitCoin](google.com) 
 
 
-<h123 >look at this video</h123>
+<h123>look at this video</h123>
 
 <div align="center" >
 
@@ -38,17 +43,7 @@ Polski język ż cz ą ę[Click here to get free BitCoin](google.com)
 
 
 ```java
-package io.github.jwdeveloper.descrabble.github;
-
-import io.github.jwdeveloper.descrabble.api.DescrabblePlugin;
-
-public class DescrabbleGithub {
-    public static DescrabblePlugin plugin() {
-        return new Plugin();
-    }
-
-}
- 
+D:\Git\Descrabble\descrabble-github\src\main\java\io\github\jwdeveloper\descrabble\github\DescrabbleGithub.java  
 ```
 
 </details>

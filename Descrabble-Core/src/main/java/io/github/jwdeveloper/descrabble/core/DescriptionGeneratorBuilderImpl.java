@@ -62,7 +62,7 @@ public class DescriptionGeneratorBuilderImpl implements DescriptionGeneratorBuil
 
     @Override
     public DescriptionGeneratorBuilder withTemplate(File file) {
-        decorators.add(new TemplateParser(file));
+        decorators.add(new TemplateParser(variables, file));
         return this;
     }
 

@@ -29,23 +29,42 @@ import io.github.jwdeveloper.descrabble.api.elements.ElementType;
 import org.jsoup.Jsoup;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class TemplateParser implements DescriptionDecorator {
-    private final File file;
+    private final File root;
+    private final Map<String, FileFinder.FileDto> files;
+    private final Map<String,String> variablesMap;
 
-    public TemplateParser(File file) {
-        this.file = file;
+    public TemplateParser(Map<String,String> variables, File file)
+    {
+        this.root = file;
+        this.variablesMap = variables;
+        this.files = FileFinder.listHtmlFiles(file);
     }
 
     @Override
-    public void decorate(Element root, ElementFactory factory) {
+    public void decorate(Element root, ElementFactory factory)
+    {
+        decorateFile(this.root,root,factory);
+    }
+
+    private void decorateFile(File file, Element root, ElementFactory factory)
+    {
+        var bodyElement = getContentFromFile(file);
+        decorate(bodyElement, root, factory);
+    }
+
+
+    private org.jsoup.nodes.Element getContentFromFile(File file)
+    {
         try {
             var doc = Jsoup.parse(file, "UTF-8");
-            var htmlBody = doc.getElementsByTag("body").get(0);
-            decorate(htmlBody, root, factory);
-        } catch (IOException e) {
+            return doc.getElementsByTag("body").get(0);
+        }
+        catch (Exception e)
+        {
             throw new RuntimeException("Unable to load template file", e);
         }
     }
@@ -111,9 +130,33 @@ public class TemplateParser implements DescriptionDecorator {
                 continue;
             }
 
+            if(isFileReference(htmlElement.tagName()))
+            {
+                handleFileReference(htmlElement.tagName(), newRoot, factory);
+                root.addElement(newRoot);
+                continue;
+            }
+
             decorate(htmlElement, newRoot, factory);
             root.addElement(newRoot);
         }
+    }
+
+
+    private boolean isFileReference(String name)
+    {
+        return files.containsKey(name);
+    }
+
+    public void handleFileReference(String referenceName, Element root, ElementFactory factory)
+    {
+        for(var prop : root.getProperties().entrySet())
+        {
+            variablesMap.put(prop.getKey(),prop.getValue().toString());
+        }
+        var fileDto = files.get(referenceName);
+        var element = getContentFromFile(fileDto.getFile());
+        decorate(element, root,factory);
     }
 
     private String clearCodeTag(String input) {

@@ -1,0 +1,30 @@
+[SIZE=8]This is user template[SIZE=8]This is user template[/SIZE][/SIZE]
+[LIST]
+[*]User: mark
+[*]Description: hello
+[/LIST]
+[SPOILER=tajemnica]
+siema
+[/SPOILER][COLOR=#123456][SIZE=12][B]My name if jeff[/B][/SIZE][/COLOR]
+
+[CENTER][URL='google.com'][IMG]https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Calico_tabby_cat_-_Savannah.jpg/1200px-Calico_tabby_cat_-_Savannah.jpg[/IMG][/URL][/CENTER]
+
+Polski język ż cz ą ę[URL='google.com']Click here to get free BitCoin[/URL]
+
+[SIZE=123]look at this video[SIZE=123]look at this video[/SIZE][/SIZE]
+
+[CENTER][URL='https://www.youtube.com/watch?v=Ezr7k4sIgKk&ab_channel=BrightInsight'][IMG]https://img.youtube.com/vi/Ezr7k4sIgKk/0.jpg[/IMG][/URL][/CENTER]
+
+[SPOILER=Example Code]
+[CODE=java]
+D:\Git\Descrabble\descrabble-github\src\main\java\io\github\jwdeveloper\descrabble\github\DescrabbleGithub.java 
+[/CODE]
+[/SPOILER]
+[QUOTE]
+quiote example
+[/QUOTE]
+
+[LIST]
+[*]siema dodawanie znaczen jest bardzo wazne
+[*]siema2
+[/LIST]
