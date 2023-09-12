@@ -24,7 +24,7 @@
         <dependency>
             <groupid>com.github.jwdeveloper.Descrabble</groupid>
             <artifactid>Descrabble-Full</artifactid>
-            <version>0.0.9-Release</version>
+            <version>0.0.10-Release</version>
         </dependency>
     </dependencies>     
 ```
