@@ -131,6 +131,7 @@ public class ElementsFactoryImpl implements ElementFactory {
     public Element codeElement(String code, String language) {
         return getBuilder()
                 .withType(ElementType.CODE)
+                .withName("code")
                 .withProperty("code", code)
                 .withProperty("language", language)
                 .build();
@@ -140,6 +141,7 @@ public class ElementsFactoryImpl implements ElementFactory {
     public Element codeElementFromFile(String codeSourcePath, String language) {
         return getBuilder()
                 .withType(ElementType.CODE)
+                .withName("code")
                 .withProperty("code-source-path", codeSourcePath)
                 .withProperty("language", language)
                 .build();

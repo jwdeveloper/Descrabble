@@ -52,12 +52,18 @@ public class CodeElement extends SpigotElement {
             }
         }
 
+        if (elementData.hasProperty("code"))
+        {
+            var code = elementData.getProperty("code");
+            textBuilder.text(code);
+        }
+
     }
 
     @Override
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
         textBuilder.newLine();
-        closeTag(textBuilder,"CODE");
+        closeTag(textBuilder,"code");
 
     }
 
