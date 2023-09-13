@@ -45,7 +45,7 @@ public class VideoElement extends ImageElement {
             return;
         }
         var id = getYouTubeId(link);
-        var imageUrl = "https://img.youtube.com/vi/" + id + "/0.jpg";
+        var imageUrl = "https://img.youtube.com/vi/" + id + "/hqdefault.jpg";
         elementData.addProperty("image", imageUrl);
         super.onElementOpen(textBuilder, elementData);
     }

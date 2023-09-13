@@ -31,19 +31,8 @@ public class ContainerElement extends HtmlElement {
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
          var properties = new HashMap<String, Object>();
-
-        var position = "center";
-        if(elementData.hasTag("left"))
-        {
-            position = "left";
-        }
-        if(elementData.hasTag("right"))
-        {
-            position = "right";
-        }
-
-        properties.put("align", position);
-        renderOpenTag(textBuilder, "div", properties);
+        properties.put("align", "center");
+        renderOpenTag(textBuilder, "div",elementData, properties);
     }
 
     @Override

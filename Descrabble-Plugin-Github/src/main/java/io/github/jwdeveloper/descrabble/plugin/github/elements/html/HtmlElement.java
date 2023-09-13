@@ -37,12 +37,32 @@ public class HtmlElement implements DescrabbleElementRenderer {
     }
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
-        renderOpenTag(textBuilder, elementData.getName(), elementData.getProperties());
+        renderOpenTag(textBuilder, elementData.getName(), elementData, elementData.getProperties());
     }
 
 
-    public void renderOpenTag(TextBuilder textBuilder,String name, Map<String, Object> properties)
+    public void renderOpenTag(TextBuilder textBuilder,String name, Element elementData,  Map<String, Object> properties)
     {
+        var align = "";
+        if(elementData.hasTag("left"))
+        {
+            align = "left";
+        }
+        if(elementData.hasTag("right"))
+        {
+            align = "right";
+        }
+        if(elementData.hasTag("center"))
+        {
+            align = "right";
+        }
+
+        if(!align.equals(""))
+        {
+            properties.put("align", align);
+        }
+
+
         textBuilder.newLine();
         textBuilder.text("<").text(name).space();
 
